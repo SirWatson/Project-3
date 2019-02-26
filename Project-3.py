@@ -5,15 +5,15 @@ import urllib.request
 import re
 from requests import get
 
-def download(url, file_name):
-# open in binary mode
-    with open(file_name, "wb") as file:
-        # get request
-        response = get(url)
-        # write to file
-        file.write(response.content)
+# def download(url, file_name):
+# # open in binary mode
+#     with open(file_name, "wb") as file:
+#         # get request
+#         response = get(url)
+#         # write to file
+#         file.write(response.content)
 
-    return()
+#     return()
 
 def main():  
 
@@ -39,12 +39,14 @@ def main():
         html = str(response.read())
         #print(html)
     
-    html = html.replace("\\n", " ")
+    #html = html.replace("\\n", " ")
     #print(html)
-    regex = r"(local?) - - \[(\d+)\/(\w+)\/(\d+)(.*?)] (.*?) (.*?) (.*?) (\d+) (\d+)" 
+    regex = r"(local|remote) - - \[(\d+)\/(\w+)\/(\d+)(.*?)] (.*?) (.*?) (.*?) (\d+) (\d+)"
+    #re.compile(regex) 
     #regex = re.compile("^.+- - \[(\d+)\/(\w+)\/(\d+).+] \"(\w+) (.*) .+? (.*?)")
     #print(response.read())
-    
+    for match in re.finditer(regex, html):
+        print(match)
     data = re.split(regex, str(html))
     #print(data.group(15))
     #logfile = re.match(regex, str(html))
