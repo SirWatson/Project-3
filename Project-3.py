@@ -39,8 +39,10 @@ def main():
     Sep = 0
     Oct = 0
     Nov = 0
-    Dec = 0 
-    Months = [Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+    Dec = 0
+    Success = 0
+    Fail = 0
+    Redirect = 0
 
     for match in re.finditer(regex, html):
         data.append(match)
@@ -80,9 +82,78 @@ def main():
         if (match.group(3) == "Dec"):
             Dec += 1
             new_dec_match.write(str(match.groups()) + "\n")
+        if (match.group(9) == "200"):
+            Success += 1
+        if (match.group(9) == ("302" or "304")):
+            Redirect += 1
+        if (match.group(9) == "404"):
+            Fail += 1
+    print("There were", len(data), "queries in the log")
+    print("Of the ", len(data), "requests, ", Success, "were successful,", Redirect, "were redirected, and", Fail, "failed due to server error")
 
-    print(Jan)
-    print(Feb)
-    print(Mar)
+    month = input("Choose a month (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec): ")
+    if (month == "Jan"):
+        print("There were", Jan, "queries in", month)
+        day = input("Enter a day (1-31): ")
+        
+    if (month == "Feb"):
+        print("There were", Feb, "queries in", month)
+        day = input("Enter a day (1-31): ")
+        
+        new_feb_match.write(str(match.groups()) + "\n")
+    if (month == "Mar"):
+        print("There were", Mar, "queries in", month)
+        day = input("Enter a day (1-31): ")
+        
+        new_mar_match.write(str(match.groups()) + "\n")
+    if (month == "Apr"):
+        print("There were", Apr, "queries in", month)
+        day = input("Enter a day (1-31): ")
+        
+        new_apr_match.write(str(match.groups()) + "\n")
+    if (month == "May"):
+        print("There were", May, "queries in", month)
+        day = input("Enter a day (1-31): ")
+        
+        new_may_match.write(str(match.groups()) + "\n")
+    if (month == "Jun"):
+        print("There were", Jun, "queries in", month)
+        day = input("Enter a day (1-31): ")
+        
+        new_jun_match.write(str(match.groups()) + "\n")
+    if (month == "Jul"):
+        print("There were", Jul, "queries in", month)
+        day = input("Enter a day (1-31): ")
+        
+        new_jul_match.write(str(match.groups()) + "\n")
+    if (month == "Aug"):
+        print("There were", Aug, "queries in", month)
+        day = input("Enter a day (1-31): ")
+        
+        new_aug_match.write(str(match.groups()) + "\n")
+    if (month == "Sep"):
+        print("There were", Sep, "queries in", month)
+        day = input("Enter a day (1-31): ")
+        
+        new_sep_match.write(str(match.groups()) + "\n")
+    if (month == "Oct"):
+        print("There were", Oct, "queries in", month)
+        day = input("Enter a day (1-31): ")
+        
+        new_oct_match.write(str(match.groups()) + "\n")
+    if (month == "Nov"):
+        print("There were", Nov, "queries in", month)
+        day = input("Enter a day (1-31): ")
+        
+        new_nov_match.write(str(match.groups()) + "\n")
+    if (month == "Dec"):
+        print("There were", Dec, "queries in", month)
+        day = input("Enter a day (1-31): ")
+        
+
+    
+    # print("There were", Jan, "queries in January")
+    # print(Feb)
+    # print(Mar)
             
 main()
