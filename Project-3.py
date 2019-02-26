@@ -15,9 +15,21 @@ from requests import get
 
 #     return()
 
-def main():  
+def main():
 
-
+    new_jan_match = open("January.txt",'w')
+    new_feb_match = open("February.txt",'w')
+    new_mar_match = open("March.txt",'w')
+    new_apr_match = open("April.txt",'w')
+    new_may_match = open("May.txt",'w')
+    new_jun_match = open("June.txt",'w')
+    new_jul_match = open("July.txt",'w')
+    new_aug_match = open("August.txt",'w')
+    new_sep_match = open("September.txt",'w')
+    new_oct_match = open("October.txt",'w')
+    new_nov_match = open("November.txt",'w')
+    new_dec_match = open("December.txt",'w')
+    
     #Download file
     #download("https://s3.amazonaws.com/tcmg476/http_access_log", "logfile")
     #req = requests.get("https://s3.amazonaws.com/tcmg476/http_access_log")
@@ -65,28 +77,40 @@ def main():
         data.append(match)
         if (match.group(3) == "Jan"):
             Jan += 1
+            new_jan_match.write(str(match.groups()) + "\n")
         if (match.group(3) == "Feb"):
             Feb += 1
+            new_feb_match.write(str(match.groups()) + "\n")
         if (match.group(3) == "Mar"):
             Mar += 1
+            new_mar_match.write(str(match.groups()) + "\n")
         if (match.group(3) == "Apr"):
             Apr += 1
+            new_apr_match.write(str(match.groups()) + "\n")
         if (match.group(3) == "May"):
-            Months[May] += 1
+            May += 1
+            new_may_match.write(str(match.groups()) + "\n")
         if (match.group(3) == "Jun"):
-            Months[Jun] += 1
+            Jun += 1
+            new_jun_match.write(str(match.groups()) + "\n")
         if (match.group(3) == "Jul"):
-            Months[Jul] += 1
+            Jul += 1
+            new_jul_match.write(str(match.groups()) + "\n")
         if (match.group(3) == "Aug"):
-            Months[Aug] += 1
+            Aug += 1
+            new_aug_match.write(str(match.groups()) + "\n")
         if (match.group(3) == "Sep"):
-            Months[Sep] += 1
+            Sep += 1
+            new_sep_match.write(str(match.groups()) + "\n")
         if (match.group(3) == "Oct"):
-            Months[Oct] += 1
+            Oct += 1
+            new_oct_match.write(str(match.groups()) + "\n")
         if (match.group(3) == "Nov"):
-            Months[Nov] += 1
+            Nov += 1
+            new_nov_match.write(str(match.groups()) + "\n")
         if (match.group(3) == "Dec"):
-            Months[Dec] += 1
+            Dec += 1
+            new_dec_match.write(str(match.groups()) + "\n")
         #print(match)
     print(Jan)
     print(Feb)
