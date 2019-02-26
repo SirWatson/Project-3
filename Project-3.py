@@ -150,6 +150,52 @@ def main():
         print("There were", Dec, "queries in", month)
         day = input("Enter a day (1-31): ")
         
+    htmlcount=0
+    jpgcount=0
+    xbmcount=0
+    txtcount=0
+    gifcount=0
+    rgbcount=0
+    pscount=0
+    execount=0
+
+    lines = []
+    for line in f:
+            line = line.strip()
+            line.append(line)
+
+
+    for a in range (len(lines)):
+            try:
+                results = lines[a].split()[7]
+            except:
+                continue
+            if results.endswith('html'):
+                htmlcount += 1 
+                continue
+            if results.endswith('jpg'):
+                jpgcount += 1 
+                continue
+            if results.endswith('xbm'):
+                xbmcount += 1 
+                continue
+            if results.endswith('txt'):
+                txtcount += 1 
+                continue
+            if results.endswith('gif'):
+                gifcount += 1 
+                continue
+            if results.endswith('rgb'):
+                rgbcount += 1 
+                continue
+            if results.endswith('ps'):
+                pscount += 1 
+                continue
+            if results.endswith('exe'):
+                execount += 1 
+                continue
+            else:
+                continue
 
     
     # print("There were", Jan, "queries in January")
