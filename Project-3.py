@@ -199,7 +199,7 @@ def main():
             else:
                 continue
 #use min to count most frequent files
-files = ('htmlcount', jpgcount, xbmcount, txtcount, gifcount, rgbcount, pscount, execount)
+files = ('htmlcount', 'jpgcount', 'xbmcount', 'txtcount', 'gifcount', 'rgbcount', 'pscount', 'execount')
 
 #use min to count least frequent files
 if htmlcount == min(files):
