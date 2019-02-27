@@ -90,67 +90,77 @@ def main():
             Redirect += 1
         if (str(match.group(9))[0] == "4"):
             Fail += 1
-    print("There were", len(data), "queries in the log")
-    print("Of the ", len(data), "requests, ", Success, "were successful,", Redirect, "were redirected, and", Fail, "failed due to server error")
+    
+    
+    total = len(data)
+    dailyaverage = format((total/365), '.2f')
+    weeklyaverage = format((total/52), '.2f')
+    monthlyaverage = format((total/12), '.2f')
+    failpercent = format((Fail/total)*100, '.2f')
+    Sucpercent = format((Success/total)*100, '.2f')
+    Redpercent = format((Redirect/total)*100, '.2f')
+    print("There were", total, "queries in the log")
+    print("Of the ", total, "requests, ", Success, "(", Sucpercent,"%) were successful,", Redirect, "(", Redpercent, "%) were redirected, and", Fail, "(", failpercent, "%) failed due to server error")
 
-    month = input("Choose a month (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec): ")
-    if (month == "Jan"):
-        print("There were", Jan, "queries in", month)
-        day = input("Enter a day (1-31): ")
+    print("On average, there were", dailyaverage," queries a day, ", weeklyaverage," queries a week and ", monthlyaverage," queries per month")
+    # month = input("Choose a month (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec): ")
+    # if (month == "Jan"):
+    #     print("There were", Jan, "queries in", month)
+    #     day = input("Enter a day (1-31): ")
         
-    if (month == "Feb"):
-        print("There were", Feb, "queries in", month)
-        day = input("Enter a day (1-31): ")
+    # if (month == "Feb"):
+    #     print("There were", Feb, "queries in", month)
+    #     day = input("Enter a day (1-31): ")
         
-        new_feb_match.write(str(match.groups()) + "\n")
-    if (month == "Mar"):
-        print("There were", Mar, "queries in", month)
-        day = input("Enter a day (1-31): ")
+    #     new_feb_match.write(str(match.groups()) + "\n")
+    # if (month == "Mar"):
+    #     print("There were", Mar, "queries in", month)
+    #     day = input("Enter a day (1-31): ")
         
-        new_mar_match.write(str(match.groups()) + "\n")
-    if (month == "Apr"):
-        print("There were", Apr, "queries in", month)
-        day = input("Enter a day (1-31): ")
+    #     new_mar_match.write(str(match.groups()) + "\n")
+    # if (month == "Apr"):
+    #     print("There were", Apr, "queries in", month)
+    #     day = input("Enter a day (1-31): ")
         
-        new_apr_match.write(str(match.groups()) + "\n")
-    if (month == "May"):
-        print("There were", May, "queries in", month)
-        day = input("Enter a day (1-31): ")
+    #     new_apr_match.write(str(match.groups()) + "\n")
+    # if (month == "May"):
+    #     print("There were", May, "queries in", month)
+    #     day = input("Enter a day (1-31): ")
         
-        new_may_match.write(str(match.groups()) + "\n")
-    if (month == "Jun"):
-        print("There were", Jun, "queries in", month)
-        day = input("Enter a day (1-31): ")
+    #     new_may_match.write(str(match.groups()) + "\n")
+    # if (month == "Jun"):
+    #     print("There were", Jun, "queries in", month)
+    #     day = input("Enter a day (1-31): ")
         
-        new_jun_match.write(str(match.groups()) + "\n")
-    if (month == "Jul"):
-        print("There were", Jul, "queries in", month)
-        day = input("Enter a day (1-31): ")
+    #     new_jun_match.write(str(match.groups()) + "\n")
+    # if (month == "Jul"):
+    #     print("There were", Jul, "queries in", month)
+    #     day = input("Enter a day (1-31): ")
         
-        new_jul_match.write(str(match.groups()) + "\n")
-    if (month == "Aug"):
-        print("There were", Aug, "queries in", month)
-        day = input("Enter a day (1-31): ")
+    #     new_jul_match.write(str(match.groups()) + "\n")
+    # if (month == "Aug"):
+    #     print("There were", Aug, "queries in", month)
+    #     day = input("Enter a day (1-31): ")
         
-        new_aug_match.write(str(match.groups()) + "\n")
-    if (month == "Sep"):
-        print("There were", Sep, "queries in", month)
-        day = input("Enter a day (1-31): ")
+    #     new_aug_match.write(str(match.groups()) + "\n")
+    # if (month == "Sep"):
+    #     print("There were", Sep, "queries in", month)
+    #     day = input("Enter a day (1-31): ")
         
-        new_sep_match.write(str(match.groups()) + "\n")
-    if (month == "Oct"):
-        print("There were", Oct, "queries in", month)
-        day = input("Enter a day (1-31): ")
+    #     new_sep_match.write(str(match.groups()) + "\n")
+    # if (month == "Oct"):
+    #     print("There were", Oct, "queries in", month)
+    #     day = input("Enter a day (1-31): ")
         
-        new_oct_match.write(str(match.groups()) + "\n")
-    if (month == "Nov"):
-        print("There were", Nov, "queries in", month)
-        day = input("Enter a day (1-31): ")
+    #     new_oct_match.write(str(match.groups()) + "\n")
+    # if (month == "Nov"):
+    #     print("There were", Nov, "queries in", month)
+    #     day = input("Enter a day (1-31): ")
         
-        new_nov_match.write(str(match.groups()) + "\n")
-    if (month == "Dec"):
-        print("There were", Dec, "queries in", month)
-        day = input("Enter a day (1-31): ")
+    #     new_nov_match.write(str(match.groups()) + "\n")
+    # if (month == "Dec"):
+    #     print("There were", Dec, "queries in", month)
+    #     day = input("Enter a day (1-31): ")
         
     htmlcount=0
     jpgcount=0
@@ -164,7 +174,7 @@ def main():
     lines = []
     for line in html:
             line = line.strip()
-            line.append(line)
+            lines.append(line)
 
 
     for a in range (len(lines)):
@@ -198,27 +208,45 @@ def main():
                 continue
             else:
                 continue
-#use min to count most frequent files
-files = ('htmlcount', 'jpgcount', 'xbmcount', 'txtcount', 'gifcount', 'rgbcount', 'pscount', 'execount')
+    #use min to count most frequent files
+    files = ('htmlcount', 'jpgcount', 'xbmcount', 'txtcount', 'gifcount', 'rgbcount', 'pscount', 'execount')
 
-#use min to count least frequent files
-if 'htmlcount' == min(files):
-    print('html is least requested file:', min(files))
+    #use min to count least frequent files
+    if 'htmlcount' == min(files):
+        print('html is least requested file:', min(files))
 
-elif 'jpgcount' == min(files):
-    print('jpg is least requested file:', min(files))
-elif 'xbmcount' == min(files):
-    print('xbm is least requested file:', min(files))
-elif 'txtcount' == min(files):
-    print('txt is least requested file:', min(files))
-elif 'gifcount' == min(files):
-    print('gif is least requested file:', min(files))
-elif 'rgbcount' == min(files):
-    print('rgb is least requested file:', min(files))  
-elif 'pscount' == min(files):
-    print('ps is least requested file:', min(files)) 
-elif 'execount' == min(files):
-    print('exe is least requested file:', min(files))  
+    elif 'jpgcount' == min(files):
+        print('jpg is least requested file:', min(files))
+    elif 'xbmcount' == min(files):
+        print('xbm is least requested file:', min(files))
+    elif 'txtcount' == min(files):
+        print('txt is least requested file:', min(files))
+    elif 'gifcount' == min(files):
+        print('gif is least requested file:', min(files))
+    elif 'rgbcount' == min(files):
+        print('rgb is least requested file:', min(files))  
+    elif 'pscount' == min(files):
+        print('ps is least requested file:', min(files)) 
+    elif 'execount' == min(files):
+        print('exe is least requested file:', min(files))
+
+    if 'htmlcount' == max(files):
+        print('html is most requested file:', max(files))
+
+    elif 'jpgcount' == max(files):
+        print('jpg is most requested file:', max(files))
+    elif 'xbmcount' == max(files):
+        print('xbm is most requested file:', max(files))
+    elif 'txtcount' == max(files):
+        print('txt is most requested file:', max(files))
+    elif 'gifcount' == max(files):
+        print('gif is most requested file:', max(files))
+    elif 'rgbcount' == max(files):
+        print('rgb is most requested file:', max(files))  
+    elif 'pscount' == max(files):
+        print('ps is most requested file:', max(files)) 
+    elif 'execount' == max(files):
+        print('exe is most requested file:', max(files))  
 
     # print("There were", Jan, "queries in January")
     # print(Feb)
