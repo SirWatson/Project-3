@@ -28,7 +28,7 @@ def main():
 
         html = str(response.readlines())
         
-    regex = r"(local|remote) - - \[(\d+)\/(\w+)\/(\d+)(.*?)] (.*?) (.*?) (.*?) (\d+) (\d+?)"
+    regex = r"(local|remote) - - \[(\d+)\/(\w+)\/(\d+)(.*?)] (.*?) (.*?) (.*?) (\d+) (\d+)?"
    
     Jan = 0
     Feb = 0
