@@ -2,6 +2,10 @@
 import urllib.request
 import re
 
+#Compare with 3XX, 4XX codes
+#Calculate %
+#Catch extraneous logfiles
+
 
 def main():
 
@@ -19,15 +23,13 @@ def main():
     new_dec_match = open("December.txt",'w')
     
     data = []
-    count = 0
-    
+  
     with urllib.request.urlopen("https://s3.amazonaws.com/tcmg476/http_access_log") as response:
 
-        html = str(response.read())
+        html = str(response.readlines())
         
-    regex = r"(local|remote) - - \[(\d+)\/(\w+)\/(\d+)(.*?)] (.*?) (.*?) (.*?) (\d+) (\d+)"
-    regex2 = r"(.*?)\'(local|remote) - - \[(\d+)\/(\w+)\/(\d+)(.*?)] (.*?) (.*?) (.*?) (\d+) (\d+)"
-    
+    regex = r"(local|remote) - - \[(\d+)\/(\w+)\/(\d+)(.*?)] (.*?) (.*?) (.*?) (\d+) (\d+?)"
+   
     Jan = 0
     Feb = 0
     Mar = 0
@@ -49,44 +51,44 @@ def main():
         if (match.group(3) == "Jan"):
             Jan += 1
             new_jan_match.write(str(match.groups()) + "\n")
-        if (match.group(3) == "Feb"):
+        elif (match.group(3) == "Feb"):
             Feb += 1
             new_feb_match.write(str(match.groups()) + "\n")
-        if (match.group(3) == "Mar"):
+        elif (match.group(3) == "Mar"):
             Mar += 1
             new_mar_match.write(str(match.groups()) + "\n")
-        if (match.group(3) == "Apr"):
+        elif (match.group(3) == "Apr"):
             Apr += 1
             new_apr_match.write(str(match.groups()) + "\n")
-        if (match.group(3) == "May"):
+        elif (match.group(3) == "May"):
             May += 1
             new_may_match.write(str(match.groups()) + "\n")
-        if (match.group(3) == "Jun"):
+        elif (match.group(3) == "Jun"):
             Jun += 1
             new_jun_match.write(str(match.groups()) + "\n")
-        if (match.group(3) == "Jul"):
+        elif (match.group(3) == "Jul"):
             Jul += 1
             new_jul_match.write(str(match.groups()) + "\n")
-        if (match.group(3) == "Aug"):
+        elif (match.group(3) == "Aug"):
             Aug += 1
             new_aug_match.write(str(match.groups()) + "\n")
-        if (match.group(3) == "Sep"):
+        elif (match.group(3) == "Sep"):
             Sep += 1
             new_sep_match.write(str(match.groups()) + "\n")
-        if (match.group(3) == "Oct"):
+        elif (match.group(3) == "Oct"):
             Oct += 1
             new_oct_match.write(str(match.groups()) + "\n")
-        if (match.group(3) == "Nov"):
+        elif (match.group(3) == "Nov"):
             Nov += 1
             new_nov_match.write(str(match.groups()) + "\n")
-        if (match.group(3) == "Dec"):
+        elif (match.group(3) == "Dec"):
             Dec += 1
             new_dec_match.write(str(match.groups()) + "\n")
-        if (match.group(9) == "200"):
+        if (match.group(9)[0] == "2"):
             Success += 1
-        if (match.group(9) == ("302" or "304")):
+        if (str(match.group(9))[0] == "3"):
             Redirect += 1
-        if (match.group(9) == "404"):
+        if (str(match.group(9))[0] == "4"):
             Fail += 1
     print("There were", len(data), "queries in the log")
     print("Of the ", len(data), "requests, ", Success, "were successful,", Redirect, "were redirected, and", Fail, "failed due to server error")
