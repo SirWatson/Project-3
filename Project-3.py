@@ -202,22 +202,22 @@ def main():
 files = ('htmlcount', 'jpgcount', 'xbmcount', 'txtcount', 'gifcount', 'rgbcount', 'pscount', 'execount')
 
 #use min to count least frequent files
-if htmlcount == min(files):
+if 'htmlcount' == min(files):
     print('html is least requested file:', min(files))
 
-elif jpgcount == min(files):
+elif 'jpgcount' == min(files):
     print('jpg is least requested file:', min(files))
-elif xbmcount == min(files):
+elif 'xbmcount' == min(files):
     print('xbm is least requested file:', min(files))
-elif txtcount == min(files):
+elif 'txtcount' == min(files):
     print('txt is least requested file:', min(files))
-elif gifcount == min(files):
+elif 'gifcount' == min(files):
     print('gif is least requested file:', min(files))
-elif rgbcount == min(files):
+elif 'rgbcount' == min(files):
     print('rgb is least requested file:', min(files))  
-elif pscount == min(files):
+elif 'pscount' == min(files):
     print('ps is least requested file:', min(files)) 
-elif execount == min(files):
+elif 'execount' == min(files):
     print('exe is least requested file:', min(files))  
 
     # print("There were", Jan, "queries in January")
