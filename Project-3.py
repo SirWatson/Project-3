@@ -160,7 +160,7 @@ def main():
     execount=0
 
     lines = []
-    for line in f:
+    for line in html:
             line = line.strip()
             line.append(line)
 
