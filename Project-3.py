@@ -199,7 +199,7 @@ def main():
             else:
                 continue
 #use min to count most frequent files
-files = (htmlcount, jpgcount, xbmcount, txtcount, gifcount, rgbcount, pscount, execount)
+files = ('htmlcount', jpgcount, xbmcount, txtcount, gifcount, rgbcount, pscount, execount)
 
 #use min to count least frequent files
 if htmlcount == min(files):
@@ -219,7 +219,7 @@ elif pscount == min(files):
     print('ps is least requested file:', min(files)) 
 elif execount == min(files):
     print('exe is least requested file:', min(files))  
-      
+
     # print("There were", Jan, "queries in January")
     # print(Feb)
     # print(Mar)
