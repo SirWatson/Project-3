@@ -1,0 +1,1 @@
+File executed successfully. Counts were essentially correct. Least and most requested file were not types, but actual files. The least requested file was one from a bunch that were only requested once, rather than exe files. Interesting way to look at it. Parsed files look good. Code is 166 lines, could've been a little more efficient. 140.
